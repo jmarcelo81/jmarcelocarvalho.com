@@ -1,0 +1,130 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>Marcelo Carvalho</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="static/assets/css/main.css" />
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+	</head>
+
+	<body class="is-preload">
+		<!-- Include the Navigation Bar -->
+		{% include 'nav.html' %}
+
+		<!-- Home -->
+			<article id="top" class="index-wrapper">
+				<div class="container">
+					<div class="row">
+						<div class="col-4 col-5-large col-12-medium">
+							<span class="image fit"><img src="static/images/jmarcelo.png" alt="A headshot of Marcelo, the creator of this website" /></span>
+						</div>
+						<div class="col-8 col-7-large col-12-medium">
+							<header>
+								<h1>Hello, I'm <strong>Marcelo Carvalho</strong>.</h1>
+							</header>
+							<p>This is <strong>my website</strong>, a place where I share my work experience, my projects for career growth, and my hobbies.</p>
+							<a href="{{ url_for('cloud_resume_challenge') }}" class="button small-resume scrolly">Resume</a>
+					    </div>
+					</div>
+				</div>
+			</article>
+
+		<!-- About Me -->
+		    <article id="about" class="wrapper style5">
+				<div class="container medium">
+					<header>
+						<h2>About Me</h2>
+					</header>
+					<p><strong> Born and raised in Brazil</strong>, my journey has been shaped by diverse experiences and a passion for growth. After high school,
+						I moved to the <strong>United States</strong> with my family, where I embarked on a transformative chapter by joining the <strong>U.S. Navy</strong>
+						<i class="fa-solid fa-anchor"></i>. My time in the military instilled in me core values such as <mark>honor, loyalty, respect, and integrity</mark>
+						principles that have become the foundation of my professional life. Through my service, I gained invaluable exposure to different cultures and perspectives, reinforcing the importance of <strong>diversity and inclusion</strong> in today’s interconnected world.</p>
+
+					<p>Following my military service, I returned to Brazil to pursue a degree in <strong>Law</strong>. Over the course of nearly a decade, I worked closely
+						with <strong>State Judges in São Paulo</strong>, as a <strong>Law Clerk</strong> and later as a <strong>Law Clerk Supervisor</strong>.
+						In these roles, I cultivated a <mark>strong sense of justice, leadership, and teamwork</mark>, fostering a collaborative and supportive environment
+						dedicated to excellence. I thrived in the legal field, but a growing interest in <strong>Cybersecurity Law</strong> sparked a desire to explore new
+						challenges. This curiosity reignited my passion for <mark>technology</mark>, a field I had always loved but placed on hold.</p>
+
+					<p>Determined to shift careers, I made the bold decision to leave behind my legal career in Brazil and immerse myself in the world of <strong>IT</strong>.
+						I began studying, gaining hands-on experience in lab environments, and two years ago, transitioned into a <strong>help desk role</strong>. This step
+						has been both <mark>rewarding and transformative</mark>, allowing me to apply my skills and continue evolving in the tech space
+					    <i class="fa-solid fa-laptop-code"></i>.</p>
+
+					<p>I am committed to <mark>continuous learning</mark>, pursuing certifications, and expanding my expertise. My ultimate goal is to become a
+						<strong>Cloud Security Engineer</strong>, a role that aligns with my aspirations of living a <mark>flexible, adventurous lifestyle,</mark> whether that
+						means traveling on my motorcycle or discovering new beaches and coffee spots. I am driven by the desire to ensure cloud networks operate
+						efficiently while <strong>safeguarding data</strong> both in transit and at rest, contributing to a <mark>safer, more secure digital landscape</mark>.</p>
+				</div>
+			</article>
+
+		<!-- Contact -->
+			<article id="contact" class="wrapper style4">
+				<div class="container medium">
+					<header>
+						<h2>Contact Me</h2>
+						<p>Send me a message below or use the contact information on my resume.</p>
+					</header>
+					<div class="row">
+						<div class="col-12">
+							<form method="post" action="#">
+								<div class="row">
+									<div class="col-6 col-12-small">
+										<input type="text" name="name" id="name" placeholder="Name" />
+									</div>
+									<div class="col-6 col-12-small">
+										<input type="text" name="email" id="email" placeholder="Email" />
+									</div>
+									<div class="col-12">
+										<input type="text" name="subject" id="subject" placeholder="Subject" />
+									</div>
+									<div class="col-12">
+										<textarea name="message" id="message" placeholder="Message"></textarea>
+									</div>
+									<div class="col-12">
+										<ul class="actions">
+											<li>
+												<a href="mailto:jmcarvalho05@hotmail.com?subject=Website Inquiry" class="button primary">Email</a>
+											</li>
+											<li>
+												<button type="submit" class="button alt">Send Message</button>
+											</li>
+   											<li>
+												<button type="reset" class="button alt">Clear Form</button>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</form>
+						</div>
+
+						<div class="col-12">
+							<hr />
+							<h3>Find me on ...</h3>
+							<ul class="social">
+								<li><a href="https://www.linkedin.com/in/jmarcelo-carvalho/" class="icon brands fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+								<li><a href="https://github.com/jmarcelo81" class="icon brands fa-github"><span class="label">Github</span></a></li>
+							</ul>
+							<hr />
+						</div>
+					</div>
+					<footer>
+						<ul id="copyright">
+							<li>&copy; Marcelo Carvalho. All rights reserved.</li><li>
+						</ul>
+					</footer>
+				</div>
+			</article>
+
+		<!-- Scripts -->
+			<script src="static/assets/js/jquery.min.js"></script>
+			<script src="static/assets/js/jquery.scrolly.min.js"></script>
+			<script src="static/assets/js/browser.min.js"></script>
+			<script src="static/assets/js/breakpoints.min.js"></script>
+			<script src="static/assets/js/util.js"></script>
+			<script src="static/assets/js/main.js"></script>
+
+	</body>
+</html>

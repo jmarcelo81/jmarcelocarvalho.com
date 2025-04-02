@@ -1,0 +1,81 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Projects</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="{{ url_for('static', filename='assets/css/main.css') }}">
+		<script src="{{ url_for('static', filename='assets/js/articles.js') }}" defer></script>
+	</head>
+	<body class="is-preload">
+
+		<!-- Include Navigation Bar -->
+		{% include 'nav.html' %}
+
+		  <!-- Projects Header -->
+    <article id="top" class="index-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-4 col-5-large col-12-medium">
+                    <span class="image fit">
+                        <img src="static/images/projects.png" alt="A headshot of Marcelo, the creator of this website" />
+                    </span>
+                </div>
+
+                <div class="col-8 col-7-large col-12-medium">
+                    <header>
+                        <h1><strong>Technical Projects</strong></h1>
+                    </header>
+                    <p>Explore lab setups, firewall deployments, and security solutions I’ve built in my virtual environment. <br>
+                    Please hover over and click on the projects to learn about what I have accomplished and what I am working on.</p>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <!-- Projects Section -->
+    <article id="about" class="wrapper projects-style with-image">
+        <div class="container articles-container">
+
+            <!-- Project 1 -->
+            <div class="article-card" onclick="toggleArticle('project1')">
+                <div class="article-summary">
+                    <h2>Virtual Lab Setup</h2>
+                    <p>Deploying VMs and creating a test network to simulate real-world environments...</p>
+                </div>
+                <div class="article-full" id="project1">
+                    <p>
+                        This project focuses on building a virtual lab using VMs, networking configurations, and deploying various services like Wazuh SIEM and pfSense firewalls.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="article-card" onclick="toggleArticle('project2')">
+                <div class="article-summary">
+                    <h2>Firewall Deployment</h2>
+                    <p>Configuring pfSense and OPNsense firewalls to secure internal networks...</p>
+                </div>
+                <div class="article-full" id="project2">
+                    <p>
+                        This deployment involved setting up VLANs, firewall rules, and VPN services to ensure secure remote access and traffic filtering.
+                    </p>
+                </div>
+            </div>
+			<footer>
+				<ul id="copyright">
+					<li>&copy; Marcelo Carvalho. All rights reserved.</li><li>
+				</ul>
+			</footer>
+        </div>
+    </article>
+
+		<!-- Scripts -->
+		<script src="{{ url_for('static', filename='assets/js/jquery.min.js') }}"></script>
+		<script src="{{ url_for('static', filename='assets/js/jquery.scrolly.min.js') }}"></script>
+		<script src="{{ url_for('static', filename='assets/js/browser.min.js') }}"></script>
+		<script src="{{ url_for('static', filename='assets/js/breakpoints.min.js') }}"></script>
+		<script src="{{ url_for('static', filename='assets/js/util.js') }}"></script>
+		<script src="{{ url_for('static', filename='assets/js/main.js') }}"></script>
+	</body>
+</html>

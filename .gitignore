@@ -1,0 +1,15 @@
+# Secrets
+.env
+
+# Python virtual environment (if you create one later)
+.venv/
+
+# Compiled files
+__pycache__/
+*.pyc
+
+# VS Code settings (optional)
+.vscode/
+
+# Docker
+*.log

@@ -1,0 +1,141 @@
+<!DOCTYPE HTML>
+
+<html lang="en">
+	<head>
+		<title>Hobbies</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="static/assets/css/main.css" />
+	</head>
+
+	<body class="is-preload">
+
+		<!-- Include the Navigation Bar -->
+		{% include 'nav.html' %}
+
+    	<!-- Hobbies Content -->
+		<article id="content"  class="hobbies-wrapper">
+        	<header class="hobbies-header">
+            	<h1>My Hobbies</h1>
+            	<p>Explore some of my hobbies and interests!</p>
+       		</header>
+
+        <!-- Hobby 1 -->
+        	<div class="hobby-container">
+            	<div class="hobby-text">
+                	<h2>Photography</h2>
+                	<p>Photography is an art that captures the essence of a place, revealing the subtle nuances and behaviors
+						that make each location unique. With just a click, an image can showcase the beauty of our world
+						and convey the profound emotions of its people.</p>
+					<p>The joy of a newlywed couple, the heartwarming smiles of friends reunited after years apart, or the
+						sorrow etched on faces touched by war or illness—it's mesmerizing how a single photograph can evoke
+						such deep emotions.</p>
+					<p>Exploring different places is fascinating; on the surface, things may seem similar, yet a closer
+						look unveils the captivating differences. Sharing my perspective on tourist attractions and scenic
+						spots allows me to express my unique point of view and invite others to see the world through my lens.</p>
+            </div>
+            <div class="hobby-images">
+                <img src="{{ url_for('static', filename='images/photo_one.jpg') }}" alt="Photography 1">
+                <img src="{{ url_for('static', filename='images/photo_two.jpg') }}" alt="Photography 2">
+            </div>
+        </div>
+
+        <!-- Hobby 2 -->
+        <div class="hobby-container-2">
+            <div class="hobby-text-2">
+                <h2>Formula 1</h2>
+                <p>Formula 1 is the pinnacle of car racing, and as a young boy I watched Senna display the greatest talent
+					I have seen anywhere. His commitment, speed, and precision and the relentless pursuit of perfection,
+					from shaving milliseconds (or a full second) off lap times to making split-second decisions at speeds
+					exceeding 200 mph, fascinated me.</p>
+				<p>Each driver operates on the edge, and watching Senna and his level of dedication and skill required to succeed,
+					made my jaw drop. His human side, his faith, strong will and in many cases stubbornness ensured that I would
+					keep coming back to watch the races.</p>
+				<p>Modern F1 is very different from the eighties and early nineties as safety increased, the technology evolved,
+					and still every so often a talented driver comes along and shows the world how precision, concentration, and
+				    raw speed can still dominate the sport. Hi Max!</p>
+				<p>Beyond the track, Formula 1 offers a unique global adventure, taking drivers and fans to iconic circuits across
+					the world. From the tight, twisting streets of Monaco to the sweeping high-speed corners of Silverstone,
+					or Spa-Francorchamps each race presents a distinct and exciting challenge.</p>
+            </div>
+            <div class="hobby-images-2">
+                <img src="{{ url_for('static', filename='images/formula_one_1.jpg') }}" alt="Gaming 1">
+                <img src="{{ url_for('static', filename='images/formula_one_2.jpg') }}" alt="Gaming 2">
+            </div>
+        </div>
+	    <!-- Hobby 3 -->
+        	<div class="hobby-container">
+            	<div class="hobby-text">
+                	<h2>Travel</h2>
+                	<p>Travel opens the door to endless possibilities, offering a chance to experience the world beyond
+						the familiar. Stepping into a new place ignites excitement – the rush of unfamiliar streets, the
+						sound of different languages, and the thrill of meeting people from diverse backgrounds. Every
+						interaction becomes an opportunity to learn about local customs, traditions, and ways of life,
+						fostering empathy and broadening perspectives. Through travel, I have tasted new flavors, immersed
+						myself in the rich tapestry of global culture, leaving each destination with memories that linger
+						long after the journey ends. </p>
+					<p>It is also a journey of intellectual growth. Exploring the history and geography of a new country
+						provides invaluable insights into how countries have shaped themselves over centuries. From walking
+						along ancient ruins throughout Portugal or Italy to understanding the struggles and triumphs that
+						define a small nation, each experience deepens our connection to the world. Personally, being born
+						near São Paulo, Brazil – a city defined by its energy and diversity – has instilled a deep appreciation
+						for cultural fusion. Traveling often reminds me of home, where cultures collide and coexist, making
+						every corner a new discovery.</p>
+					<p>Yet, no matter how far I roam, how much I learn about different places, Portugal holds a special place
+						in my heart. Its landscapes, from the golden beaches of the Algarve to the winding streets of Lisbon,
+						the slower pace of life, "o país pequenino" who explored the 7 seas evokes a sense of belonging that
+						transcends distance.
+						Portugal’s charm lies not only in its beauty but in the warmth of its people and the shared heritage
+						that binds us. Travel, for me, is a bridge between worlds – a constant pull between the excitement of
+						the unknown and the comfort	of familiar places that feel like home.</p>
+            </div>
+            <div class="hobby-images">
+                <img src="{{ url_for('static', filename='images/travel_one.jpg') }}" alt="Photography 1">
+                <img src="{{ url_for('static', filename='images/travel_two.jpg') }}" alt="Photography 2">
+				<img src="{{ url_for('static', filename='images/travel_three.jpg') }}" alt="Photography 3">
+            </div>
+        </div>
+
+		<!-- Hobby 4 -->
+        <div class="hobby-container-2">
+            <div class="hobby-text-2">
+                <h2>Motorcycles</h2>
+                <p>For me, motorcycles embody freedom in its purest form. The thrill of speed, the precision of quick maneuvers,
+					and the undeniable connection to the road turn every ride into an escape. There's a unique magic in twisting
+					the throttle, hearing the engine's roar, and leaning into each curve. On a motorcycle, you're not just traveling;
+					you're immersed. The barriers between you and the world dissolve, and every journey becomes an experience.
+					A blend of exhilaration, instinct, and the quiet rhythm of the road.</p>
+				<p>My journey with motorcycles began a little later in life. At 26, with support from dad, I took the plunge and
+					bought a striking blue-and-white bike. The same color scheme that my first bicycle had.  On my very first ride,
+					everything just clicked (just like with the bicycle). I didn't stumble, the bike stayed steady, and I felt an
+					overwhelming sense that I was exactly where I was meant to be. That moment sparked a passion I hadn’t fully
+					realized until then.</p>
+				<p>One of my favorite aspects of motorcycling is the way the journey becomes just as significant as the destination.
+					These rides often take me to hidden gems—quaint roadside cafés, vibrant local markets, and peaceful spots tucked
+					away in nature. It's not about the speed (well, not always); it's about the joy of the ride itself. The serenity
+					of carving through forested roads or winding through hilly landscapes makes every outing feel like an adventure,
+					a chance to lose myself in the journey and rediscover a sense of peace and freedom.</p>
+				<p>An unexpected  trip from Milan to Monaco reignited my love for travel and exploration. Riding through the Italian
+					countryside, with the Alps in the distance and the Mediterranean sparkling along the coastline, was unforgettable.
+					It wasn’t just about the breathtaking views; it was about the freedom to explore, the camaraderie of the open road,
+					and being fully present in each moment. Sharing that journey with my father made it all the more meaningful. A memory
+					of connection and adventure that I’ll treasure forever.</p>
+            </div>
+            <div class="hobby-images-2">
+                <img src="{{ url_for('static', filename='images/moto_one.jpg') }}" alt="Gaming 1">
+                <img src="{{ url_for('static', filename='images/moto_two.jpg') }}" alt="Gaming 2">
+				<img src="{{ url_for('static', filename='images/moto_three.jpg') }}" alt="Gaming 2">
+            </div>
+        </div>
+			
+        </article>
+
+		<!-- Scripts -->
+		<script src="{{ url_for('static', filename='assets/js/jquery.min.js') }}"></script>
+		<script src="{{ url_for('static', filename='assets/js/jquery.scrolly.min.js') }}"></script>
+		<script src="{{ url_for('static', filename='assets/js/browser.min.js') }}"></script>
+		<script src="{{ url_for('static', filename='assets/js/breakpoints.min.js') }}"></script>
+		<script src="{{ url_for('static', filename='assets/js/util.js') }}"></script>
+		<script src="{{ url_for('static', filename='assets/js/main.js') }}"></script>
+	</body>
+</html>

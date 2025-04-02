@@ -1,0 +1,120 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <title>Cloud Resume Challenge</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/main.css') }}">
+    <script src="{{ url_for('static', filename='assets/js/articles.js') }}" defer></script>
+</head>
+
+<body class="is-preload">
+    {% include 'nav.html' %}
+
+    <article id="top" class="index-wrapper">
+        <div class="container resume-header-1">
+            <div class="row">
+                <div class="col-4 col-5-large col-12-medium">
+                    <span class="image fit"><img src="static/images/resume.png" alt="Cloud Resume Header" /></span>
+                </div>
+                <div class="col-8 col-7-large col-12-medium">
+                    <header>
+                        <h1>Cloud Resume Challenge</h1>
+                    </header>
+                    <p>A project that incorporates many of the skills used by real Cloud and DevOps engineers in their
+                        daily work. More information at the <strong><a href="https://cloudresumechallenge.dev/"  target="_blank">
+                        Cloud Resume Challenge</a></strong> website.</p>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <!-- Resume Section -->
+    <article id="about" class="wrapper style6">
+        <div class="container resume-1">
+            <div class="resume-header-1">
+                <h2>Jose Marcelo Carvalho Filho</h2>
+                <h3>System Administrator</h3>
+                <p><strong>Palm Bay, Florida • +1(321)387-2446 • jmcarvalho05@hotmail.com<br>
+                    <a href="http://www.linkedin.com/in/jmarcelo-carvalho" target="_blank">LinkedIn Profile</a></strong></p>
+                <hr>
+            </div>
+            <div class="resume-section-1">
+                <h2>Work Experience</h2>
+                <div class="job-entry">
+                    <h3>Atlantic.Net | System Administrator <br> <em>09/2023 – Present</em></h3>
+                    <p>- Customized and deployed Windows and Linux systems tailored to each customer's specific needs, ensuring peak performance and satisfaction.</p>
+                    <p>- Performed comprehensive security monitoring using OpenVAS and Nessus as a key member of the Incident Rapid Response Team.</p>
+                    <p>- Executed thorough patch management across hundreds of systems, achieving compliance with GDPR, PCI DSS, and HIPAA standards.</p>
+                    <p>- Delivered extensive support to developers and DBAs, and managed diverse customer environments across both Windows and Linux platforms.</p>
+                    <p>- Documented troubleshooting procedures, reducing issue resolution times by 30% and equipping support staff with valuable knowledge and skills.</p>
+                    <p>- Configured and administered networks for both Linux and Windows systems, ensuring seamless connectivity and robust security measures.</p>
+                    <p>- Assisted the configuration and troubleshooting of Multi-Factor Authentication (MFA) and Virtual Private Networks (VPNs), enhancing security protocols and ensuring reliable remote access.</p>
+                    <p>- Deployed and managed hundreds of both dedicated and cloud-based pfSense and OpnSense firewalls, improving standard procedures thus reducing turnaround time by 30%.</p>
+                    <p>- Experienced in setting up and tuning MS SQL, PostgreSQL, and MySQL servers. Responsible for troubleshooting issues such as high availability, resource exhaustion, and more.</p>
+                </div>
+                <div class="job-entry">
+                    <h3>Atlantic.Net | Help Desk Technician <br> <em>12/2022 – 09/2023</em></h3>
+                    <p>- Delivered top-tier customer service via phone and email, troubleshooting and escalating inquiries, significantly improving customer retention.</p>
+                    <p>- Performed troubleshooting on Windows and Linux systems for both dedicated and virtualized environments.</p>
+                    <p>- Reduced ticket resolution time by 20% by streamlining processes using Jenkins, documentation, and automation.</p>
+                    <p>- Contributed to application testing and deployment projects, including firewalls, VMs, Docker containers, and SIEM servers.</p>
+                    <p>- Managed email accounts, remote access services, and secure web environments.</p>
+                    <p>- Provided remote support to 1,200+ users with over 90% efficiency using Sysadmin commands.</p>
+                    <p>- Compiled and presented reports to the management team, leading to IT department upgrades.</p>
+                    <p>- Supervised remote security patch installations on 400+ machines within five weeks of employment.</p>
+                </div>
+                <div class="job-entry">
+                    <h3>Sao Paulo State – Judiciary, Brazil | Law Clerk Supervisor <br> <em>11/2013 – 07/2022</em></h3>
+                    <p>- Managed a team of 4 law clerks and 2 interns, drafting decisions, memos, and sentences for a state judge (2019-2022).</p>
+                    <p>- Delegated and structured tasks to improve communication and workflow, boosting output by 40% (720 monthly rulings).</p>
+                    <p>- Conducted 100+ research projects reducing case backlog by 35% and expanding the branch's judicial database.</p>
+                    <p>- Led the Center for Conflict Resolution, achieving a 90% settlement rate and reducing active lawsuits by 20%.</p>
+                </div>
+                <div class="job-entry">
+                    <h3>Education</h3>
+                    <p>- Faculdades Integradas de Itapetininga – Juris Doctor Degree</p>
+                </div>
+                <div class="job-entry">
+                    <h3>Certifications</h3>
+                    <p>- CompTIA A+ – October 2022</p>
+                    <p>- CompTIA Security+ – August 2023</p>
+                    <p>- Microsoft SC-900 – February 2024</p>
+                    <p>- Microsoft AZ-500 – Currently Preparing for Exam</p>
+                </div>
+                <div class="job-entry">
+                    <h3>Skills</h3>
+                    <p>- Technical Skills: Troubleshooting, Python, SQL Server, Linux/Windows Development</p>
+                    <p>- Specializations: Cloud Computing, Cybersecurity, Systems Administration, Virtualization</p>
+                </div>
+                <div class="job-entry">
+                    <h3>Alternate Cloud Resume</h3>
+                    <p>- This version was developed for training purposes. <a href="/cloud_resume_challenge_2">Alternate Page for Cloud Resume</a></p>
+                </div>
+                <div class="resume-download">
+                    <a href="{{ url_for('static', filename='assets/resume/jmarcelo_resume.pdf') }}" download>
+                    Download Resume (PDF)</a>
+                    <div class="word-download">
+                        <a href="{{ url_for('static', filename='assets/resume/jmarcelo_resume.docx') }}" download>
+                        Download Resume (Word)</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <footer>
+        <ul id="copyright">
+            <li>&copy; Marcelo Carvalho. All rights reserved.</li>
+        </ul>
+    </footer>
+
+    <script src="{{ url_for('static', filename='assets/js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/jquery.scrolly.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/browser.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/breakpoints.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/util.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/main.js') }}"></script>
+
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <title>Articles - Cloud Security</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/main.css') }}">
+    <script src="{{ url_for('static', filename='assets/js/articles.js') }}" defer></script>
+</head>
+
+<body class="is-preload">
+    {% include 'nav.html' %}
+
+    <!-- Articles Header (Modeled After Home Page) -->
+    <article id="top" class="index-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-4 col-5-large col-12-medium">
+					<span class="image fit"><img src="static/images/cybersec.png" alt="A headshot of Marcelo, the creator of this website" /></span>
+				</div>
+				<div class="col-8 col-7-large col-12-medium">
+					<header>
+                        <h1><strong>Cloud Security Articles</strong></h1>
+                    </header>
+                    <p>A collection of articles covering essential <strong>cloud security</strong> topics and best practices. <br>
+                    Please hover over and click on the articles to read them. I hope that you find the information useful.
+                    Thank you for visiting and have a great day! </p>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <!-- Articles Content (Expandable Divs) -->
+    <article id="about" class="wrapper articles-style with-image">
+        <div class="container articles-container ">
+            <!-- Article 1 -->
+            <div class="article-card">
+                <div class="article-summary" onclick="toggleArticle('article1')">
+                    <h2>Confidentiality, Integrity, Availability</h2>
+                    <p>the pillar of cybersecurity that consists of three essential elements crucial to the operation of
+                        a business...</p>
+                </div>
+                <div class="article-full" id="article1">
+                    <p><strong>Confidentiality: </strong>It ensures that sensitive information is kept private and accessible
+                    only to authorized individuals or systems. This involves controlling access to prevent unauthorized
+                    disclosure, whether accidental or intentional. Effective confidentiality measures ensure that necessary
+                    personnel have the right access, while others are restricted.</p>
+                    <p>Breaches of confidentiality can occur through direct attacks like man-in-the-middle (MITM) attacks,
+                    network spying, or privilege escalation. Additionally, human error, such as sharing passwords or failing
+                    to encrypt data, can lead to unintentional violations. To protect confidentiality, organizations can
+                    implement access control policies, encryption (e.g., AES, DES), VPNs, multi-factor authentication (MFA),
+                    and user training (MOST IMPORTANT). These measures reduce the risk of unauthorized access and ensure that
+                    sensitive data remains secure.</p>
+					<p><strong>Integrity: </strong> ensures that data remains accurate, authentic, and free from unauthorized
+                    modifications. Reliable data builds trust, while tampering or corruption can harm an organization's reputation
+                    and operations. For example, altering executive details on a company website can damage credibility. Data
+                    integrity can be compromised intentionally through hacking, bypassing security systems, or altering logs, or
+                    unintentionally through human error or inadequate security measures.</p>
+                    <p>To safeguard data integrity, organizations use hashing (e.g., SHA, MD5), encryption, digital signatures, and
+                    certificates from trusted authorities. Non-repudiation techniques, such as digital signatures, ensure that the
+                    origin and receipt of data cannot be denied. Comparing hash values before and after data transfer also verifies
+                    that the data has not been altered during transmission.</p>
+					<p><strong>Availability: </strong>ensures that systems, networks, and data are accessible when needed by
+                    authorized users. Reliable access is essential for both internal operations and customer services. Delays or
+                    disruptions can hinder productivity and impact business continuity.</p>
+                    <p>Threats to availability include power outages, natural disasters, and cyberattacks like denial-of-service (DoS)
+                    and ransomware. A lack of disaster recovery plans or fail over systems can prolong downtime.
+                    To maintain availability, organizations implement redundant systems, regular maintenance, software updates, and
+                    network monitoring. Disaster recovery plans and data backups further enhance resilience, ensuring operations can
+                    resume quickly after disruptions. Proactive measures prevent bottlenecks and minimize the risk of unavailability.</p>
+                </div>
+            </div>
+
+            <!-- Article 2 -->
+            <div class="article-card">
+                <div class="article-summary" onclick="toggleArticle('article2')">
+                    <h2>Encryption & Hashing</h2>
+                    <p>Protecting data integrity and confidentiality...</p>
+                </div>
+                <div class="article-full" id="article2">
+                    <p>
+                        Encryption transforms data into ciphertext, making it unreadable
+                        without a key. Hashing creates a fixed-length fingerprint of data that...
+                    </p>
+                </div>
+            </div>
+            <footer>
+                <ul id="copyright">
+                    <li>&copy; Marcelo Carvalho. All rights reserved.</li><li>
+                </ul>
+            </footer>
+        </div>
+    </article>
+		<!-- Scripts -->
+		<script src="{{ url_for('static', filename='assets/js/jquery.min.js') }}"></script>
+		<script src="{{ url_for('static', filename='assets/js/jquery.scrolly.min.js') }}"></script>
+		<script src="{{ url_for('static', filename='assets/js/browser.min.js') }}"></script>
+		<script src="{{ url_for('static', filename='assets/js/breakpoints.min.js') }}"></script>
+		<script src="{{ url_for('static', filename='assets/js/util.js') }}"></script>
+		<script src="{{ url_for('static', filename='assets/js/main.js') }}"></script>
+	</body>
+</html>
