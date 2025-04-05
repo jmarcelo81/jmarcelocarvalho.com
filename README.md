@@ -1,97 +1,99 @@
-# 🌐 jmarcelocarvalho.com
+# 🌐 jmarcelocarvalho.com - Personal Website Project (v1.0)
 
-A personal portfolio website built with **Flask**, **Docker**, and **PostgreSQL**, running on a self-hosted Ubuntu server. The project showcases my skills in web development, DevOps, containerization, and cloud security.
+## ✨ Overview
+A secure and scalable personal website built using **Flask**, **Docker**, and **PostgreSQL**, deployed on **AWS EC2**, and protected by **Cloudflare, UFW**, and **CrowdSec**.
 
-> 🎯 **Goal**: Host a secure, scalable, and production-ready website as a living project to showcase to employers.
-
----
-
-## 🚀 Features
-
-- 🐍 Python + Flask web application
-- 🐳 Containerized with Docker
-- 🗃️ PostgreSQL database (via Docker)
-- 🔐 Secret management with `.env`
-- 🌍 Planned AWS EC2 deployment with HTTPS (Let's Encrypt)
-- 📄 Contact form saving to CSV (starter feature)
-- ⚙️ GitHub Actions (CI/CD workflow coming soon)
-- 📚 Articles, projects, and hobbies page
-- 💡 Plans to scale with Kubernetes and subdomains
+> ✅ Live: [https://jmarcelocarvalho.com](https://jmarcelocarvalho.com)
+>
+> 📄 GitHub Repo: [github.com/jmarcelo81/jmarcelocarvalho.com](https://github.com/jmarcelo81/jmarcelocarvalho.com)
 
 ---
 
-## 🧰 Tech Stack
+## 🔧 Tech Stack
 
-| Layer         | Tools / Technologies         |
-|---------------|------------------------------|
-| Backend       | Python, Flask                |
-| Frontend      | HTML, CSS (custom), Jinja2   |
-| Database      | PostgreSQL (Docker)          |
-| DevOps        | Docker, GitHub Actions       |
-| Hosting       | Self-hosted (dev), AWS EC2 (prod) |
-| Security      | SSH keys, .env, HTTPS planned |
+| Layer              | Technology                                 |
+|--------------------|--------------------------------------------|
+| Backend            | Python (Flask)                             |
+| Frontend           | HTML, CSS, Jinja2 templates                |
+| Containerization   | Docker                                     |
+| Reverse Proxy      | Nginx with Let's Encrypt (SSL)             |
+| Database (Planned) | PostgreSQL                                 |
+| DNS + WAF          | Cloudflare                                 |
+| Security           | UFW, CrowdSec, Cloudflare WAF              |
+| Hosting            | AWS EC2 (Ubuntu 24.04)                     |
+| CI/CD              | GitHub Actions (build/test pipeline ready) |
+
+---
+
+## 📍 Environments
+
+### 🏠 Dev
+- Hosted behind **OPNsense Firewall** on a **Docker VM**
+- Home Lab with Hyper-V
+
+### ☀️ Prod
+- Hosted on AWS EC2 (t3.micro)
+- Deployed with Docker
+- SSL managed by Certbot using **Cloudflare DNS challenge**
+
+---
+
+## 🛡️ Security Features
+
+| Feature               | Description                                              |
+|-----------------------|----------------------------------------------------------|
+| UFW                   | Only essential ports (80, 443) are open to the public    |
+| CrowdSec              | Real-time intrusion detection and auto-banning           |
+| Cloudflare WAF        | OWASP ruleset, Bot Fight Mode, and Rate Limiting         |
+| DNS-based SSL         | Certificates auto-renew via Cloudflare API               |
+| robots.txt            | Prevents search engines from indexing sensitive paths    |
+
+---
+
+## 🚀 GitHub Actions (CI/CD)
+- Validates Docker builds
+- Future plan: auto-deploy to EC2 using SSH or GitHub Runner
+
+---
+
+## 📅 Timeline
+- ✅ Local Dev: Ubuntu + Docker behind OPNsense
+- ✅ Deployed to AWS EC2
+- ✅ Configured Cloudflare for DNS + SSL
+- ✅ Hardened with UFW + CrowdSec
+- ✅ Added GitHub CI/CD pipeline
 
 ---
 
 ## 📸 Screenshots
-
-Coming soon — will include home page, projects, and form submission confirmation.
-
----
-
-## 🛠️ Setup Instructions
-
-1. Clone the repo:
-   ```bash
-   git clone https://github.com/jmarcelo81/jmarcelocarvalho.com.git
-   cd jmarcelocarvalho.com```
-
-2. Create a .env file:
-   ```FLASK_SECRET_KEY=your-secret-key
-   DATABASE_URL=postgresql://user:password@postgres:5432/dbname```
-
-3. Build the Docker image:
-   ```docker build -t jmarcelocarvalho-app .```
-
-4. Run the containers:
-   ```docker network create web-net
-
-docker run -d \
-  --name postgres \
-  --network web-net \
-  -e POSTGRES_USER=user \
-  -e POSTGRES_PASSWORD=password \
-  -e POSTGRES_DB=perfectspot \
-  -v pgdata:/var/lib/postgresql/data \
-  postgres:15
-
-docker run -d \
-  --name web-app \
-  --network web-net \
-  -p 80:5000 \
-  --env-file .env \
-  jmarcelocarvalho-app```
+Add relevant screenshots here:
+- Home Page
+- Articles / Projects / Hobbies Sections
+- `docker ps` output
+- Cloudflare dashboard (WAF / Rate Limiting)
+- CrowdSec decision list
+- GitHub Actions passing build
 
 ---
 
-## 📌 To Do
-
-- [x] Add `.env` secret loading
-- [x] Create public GitHub repo
-- [ ] Add GitHub Actions workflow
-- [ ] Add Nginx + Let's Encrypt on EC2
-- [ ] Add dynamic DB usage for questionnaire subdomain
-- [ ] Automate PostgreSQL volume backups
+## 🔍 Future Improvements
+- Integrate the subdomain questionnaire app
+- Use PostgreSQL as backend DB
+- Add visitor analytics (e.g. Plausible)
+- Expand CI/CD to deploy on push
+- Add monitoring and uptime alerting
 
 ---
 
-## 📜 License
-MIT License
+## 🌟 About
+Built by Marcelo Carvalho as a personal branding and documentation project to showcase real-world sysadmin and DevSecOps skills. Deployed in a production-grade environment using industry best practices.
 
 ---
-## 🧑‍💻 Author
-Marcelo Carvalho
-🛡️ SysAdmin | Cybersecurity Student | Cloud Enthusiast
-🌎 jmarcelocarvalho.com
-📫 LinkedIn
-📝 Portfolio in progress!
+
+## 💎 License
+This project is open-source and licensed under the MIT License.
+
+---
+
+*Thank you for checking out this project! Feel free to explore the code, provide feedback, or get in touch on [LinkedIn](https://www.linkedin.com/in/jmarcelo-carvalho/).*
+
