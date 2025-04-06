@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, send_from_directory
 import csv
 from dotenv import load_dotenv
 import os
@@ -30,7 +30,7 @@ def home():
         message = request.form.get("message")
 
         # Print to console for debugging
-        print(f"Name: {name}, Email: {email}, Subject: {subject}, Message: {message}")
+        # print(f"Name: {name}, Email: {email}, Subject: {subject}, Message: {message}")
 
         # Save to CSV
         save_to_csv(name, email, subject, message)
@@ -41,7 +41,12 @@ def home():
     return render_template("index.html")
 
 
-# Additional routes for other pages
+# Additional routes for robotd and other pages
+
+@app.route("/robots.txt")
+def robots_txt():
+    return send_from_directory(app.static_folder, "robots.txt")
+
 @app.route("/articles")
 def articles():
     return render_template("articles.html")
@@ -64,4 +69,4 @@ def hobbies():
 
 if __name__ == "__main__":
     app.run(debug=True)
-
+    
