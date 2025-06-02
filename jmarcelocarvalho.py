@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, send_from_directory
-import csv
 from dotenv import load_dotenv
-import os
+import csv, os, psycopg2
+
 
 load_dotenv()
 
@@ -11,14 +11,20 @@ app = Flask(__name__)
 app.secret_key = os.getenv("FLASK_SECRET_KEY")
 db_url = os.getenv("DATABASE_URL")
 
-# Function to save form data to CSV
-def save_to_csv(name, email, subject, message):
-    with open('messages.csv', 'a', newline='') as file:
-        writer = csv.writer(file)
-        # Write header if file is empty
-        if file.tell() == 0:
-            writer.writerow(['Name', 'Email', 'Subject', 'Message'])
-        writer.writerow([name, email, subject, message])
+# Save contact from website to database
+def save_to_db(name, email, subject, message):
+    try:
+        conn = psycopg2.connect(os.getenv("CONTACT_DB_URL"))
+        cursor = conn.cursor()
+        cursor.execute("""
+            INSERT INTO messages (name, email, subject, message)
+            VALUES (%s, %s, %s, %s)
+        """, (name, email, subject, message))
+        conn.commit()
+        cursor.close()
+        conn.close()
+    except Exception as e:
+        print("Database insert error:", e)
 
 # Home route to handle form submission
 @app.route("/", methods=["GET", "POST"])
@@ -29,11 +35,8 @@ def home():
         subject = request.form.get("subject")
         message = request.form.get("message")
 
-        # Print to console for debugging
-        # print(f"Name: {name}, Email: {email}, Subject: {subject}, Message: {message}")
-
-        # Save to CSV
-        save_to_csv(name, email, subject, message)
+        # Save to Database
+        save_to_db(name, email, subject, message)
 
         # Render the template with a success message
         return render_template("index.html", success=True)
@@ -41,7 +44,7 @@ def home():
     return render_template("index.html")
 
 
-# Additional routes for robotd and other pages
+# Additional routes for robots and other pages
 
 @app.route("/robots.txt")
 def robots_txt():
@@ -66,7 +69,3 @@ def projects():
 @app.route("/hobbies")
 def hobbies():
     return render_template("hobbies.html")
-
-if __name__ == "__main__":
-    app.run(debug=True)
-    
