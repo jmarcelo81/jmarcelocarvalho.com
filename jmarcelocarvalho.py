@@ -58,10 +58,6 @@ def articles():
 def cloud_resume_challenge():
     return render_template("cloud_resume_challenge.html")
 
-@app.route("/cloud_resume_challenge_2")
-def cloud_resume_challenge_two():
-    return render_template("cloud_resume_challenge_2.html")
-
 @app.route("/projects")
 def projects():
     return render_template("projects.html")
