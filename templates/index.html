@@ -28,7 +28,7 @@
                     </header>
 
                     <p class="hero-subtitle">
-                        Cloud & Infrastructure Engineer • SRE-oriented • Automation & Observability
+                        Cloud & Infrastructure Engineer
                     </p>
 
                     <p>
@@ -40,19 +40,64 @@
                     </p>
 
                     <div class="hero-cta">
-                        <a href="{{ url_for('cloud_resume_challenge') }}" class="button primary small-resume scrolly">
-                            View Resume
+
+                        <a href="{{ url_for('cloud_resume_challenge') }}" class="button btn-resume scrolly">
+                            📄 View Resume
                         </a>
 
                         <a href="https://www.linkedin.com/in/jmarcelo-carvalho/" target="_blank" rel="noopener noreferrer"
-                           class="button alt">
+                        class="button btn-linkedin">
                             <i class="fa-brands fa-linkedin-in"></i> LinkedIn
                         </a>
 
                         <a href="https://github.com/jmarcelo81" target="_blank" rel="noopener noreferrer"
-                           class="button alt">
+                        class="button btn-github">
                             <i class="fa-brands fa-github"></i> GitHub
                         </a>
+
+                        <button class="button btn-certs" onclick="document.getElementById('certModal').classList.add('active')">
+                            🏅 Certifications
+                        </button>
+                    </div>
+
+                    <!-- Certification Modal -->
+                    <div class="cert-modal-overlay" id="certModal">
+                        <div class="cert-modal">
+                            <button class="cert-modal-close" onclick="document.getElementById('certModal').classList.remove('active')">&times;</button>
+                            <h3>🏅 Certifications</h3>
+                            <div class="cert-grid">
+                                <div class="cert-item">
+                                    <span class="cert-icon">🖥️</span>
+                                    <p>CompTIA A+</p>
+                                    <p class="cert-year">2022</p>
+                                </div>
+                                <div class="cert-item">
+                                    <span class="cert-icon">🔐</span>
+                                    <p>CompTIA Security+</p>
+                                    <p class="cert-year">2023</p>
+                                </div>
+                                <div class="cert-item">
+                                    <span class="cert-icon">☁️</span>
+                                    <p>Microsoft SC-900</p>
+                                    <p class="cert-year">2024</p>
+                                </div>
+                                <div class="cert-item">
+                                    <span class="cert-icon">☁️</span>
+                                    <p>CompTIA Cloud+</p>
+                                    <p class="cert-year">2025</p>
+                                </div>
+                                <div class="cert-item">
+                                    <span class="cert-icon">🟡</span>
+                                    <p>AWS Cloud Practitioner</p>
+                                    <p class="cert-year">2026</p>
+                                </div>
+                                <div class="cert-item">
+                                    <span class="cert-icon">🏗️</span>
+                                    <p>Terraform Associate</p>
+                                    <p class="cert-year">In Progress</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -67,24 +112,23 @@
 			</header>
 
 			<p>
-				Born in Brazil and raised between cultures, I bring a global perspective shaped by service in the 
-				<strong>U.S. Navy</strong> <i class="fa-solid fa-anchor"></i> and over a decade working within Brazil’s judicial system. 
-				These experiences instilled discipline, accountability, leadership, and a deep respect for structure and compliance.
+				Born in Brazil and raised between different cultures, I bring a global perspective shaped by service in the 
+				<strong>U.S. Navy</strong> <i class="fa-solid fa-anchor"></i>, four years in Italy and over a decade working within Brazil’s
+                judicial system. These experiences instilled discipline, accountability, leadership, and a deep respect for balance, structure,
+                and compliance.
 			</p>
 
 			<p>
-				After earning a Law degree and serving as a <strong>Law Clerk Supervisor</strong>, I transitioned into IT to pursue 
-				my long-standing passion for technology. Over the past 3.5 years, I have grown from Help Desk to 
-				Cloud & Infrastructure roles, building hands-on experience in automation, patch compliance, 
-				virtualization, networking, and reliability engineering <i class="fa-solid fa-laptop-code"></i>.
+				After earning a Law degree and serving as a <strong>Law Clerk Supervisor</strong>, I transitioned into IT to pursue  my long-standing
+                passion for technology. Over the past 3.5 years, I have grown from Help Desk to Cloud & Infrastructure roles, building hands-on 
+                experience in automation, patch compliance, virtualization, networking, and reliability engineering <i class="fa-solid fa-laptop-code"></i>.
 			</p>
 
 			<p>
-				My goal is to become a <strong>Cloud & Security Engineer</strong>, designing resilient and secure cloud systems 
-				while embracing a <mark>location-independent lifestyle</mark> based in Europe. Whether working from my home office 
-				or a local coffee shop <i class="fa-solid fa-mug-saucer"></i>, I focus on building infrastructure that is scalable, 
-				observable, and secure. Outside of engineering, I recharge by exploring new roads on my motorcycle 
-				<i class="fa-solid fa-motorcycle"></i>.
+				My goal is to become a <strong>Cloud & Security Engineer</strong>, designing resilient and secure cloud systems while embracing a
+                <mark>location-independent lifestyle</mark> based in Europe. Whether working from my home office or a local coffee shop <i class="fa-solid fa-mug-saucer"></i>,
+                I focus on building infrastructure that is scalable, observable, and secure. Outside of engineering, I recharge by exploring new roads
+                on my motorcycle <i class="fa-solid fa-motorcycle"></i>.
 			</p>
 
 			<h3><strong>🌍 My Relocation Assistance App</strong></h3>
@@ -178,5 +222,12 @@
     <script src="static/assets/js/breakpoints.min.js"></script>
     <script src="static/assets/js/util.js"></script>
     <script src="static/assets/js/main.js"></script>
+
+    <script>
+        document.getElementById('certModal').addEventListener('click', function(e) {
+            if (e.target === this) this.classList.remove('active');
+        });
+    </script>
+
 </body>
 </html>
