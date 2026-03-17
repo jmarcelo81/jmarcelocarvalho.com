@@ -1,0 +1,38 @@
+services:
+  contact_info:
+    image: postgres:15
+    container_name: contact_info
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${CONTACT_DB_USER}
+      POSTGRES_PASSWORD: ${CONTACT_DB_PASSWORD}
+      POSTGRES_DB: ${CONTACT_DB_NAME}
+    volumes:
+      - contact_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${CONTACT_DB_USER} -d ${CONTACT_DB_NAME}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - web-net
+
+  web:
+    build: .
+    container_name: web-app
+    restart: unless-stopped
+    ports:
+      - "5000:5000"
+    env_file:
+      - .env
+    depends_on:
+      contact_info:
+        condition: service_healthy
+    networks:
+      - web-net
+
+volumes:
+  contact_pgdata:
+
+networks:
+  web-net:
