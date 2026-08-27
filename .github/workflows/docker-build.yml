@@ -45,11 +45,18 @@ jobs:
 
       - name: Deploy via SSM
         run: |
+          # Build the remote command with the SHA baked in
+          REMOTE_CMD="sudo -u jmarcelo bash -lc 'cd /home/jmarcelo/jmarcelocarvalho && git pull && export WEB_TAG=${GITHUB_SHA} && docker compose pull && docker compose up -d && docker compose ps'"
+
+          # Write parameters as JSON to sidestep CLI quoting issues
+          jq -n --arg cmd "$REMOTE_CMD" '{commands: [$cmd]}' > /tmp/params.json
+          echo "Parameters:"; cat /tmp/params.json
+
           CMD_ID=$(aws ssm send-command \
             --instance-ids i-0cf8c5811cffc33fe \
             --document-name AWS-RunShellScript \
             --comment "Deploy ${GITHUB_SHA}" \
-            --parameters commands="sudo -u jmarcelo bash -lc 'cd /home/jmarcelo/jmarcelocarvalho && git pull && export WEB_TAG=${GITHUB_SHA} && docker compose pull && docker compose up -d && docker compose ps'" \
+            --parameters file:///tmp/params.json \
             --query "Command.CommandId" --output text)
           echo "Command ID: $CMD_ID"
 
