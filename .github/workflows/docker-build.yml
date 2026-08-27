@@ -29,3 +29,51 @@ jobs:
           tags: |
             ghcr.io/jmarcelo81/jmarcelocarvalho.com:${{ github.sha }}
             ghcr.io/jmarcelo81/jmarcelocarvalho.com:latest
+
+  deploy:
+    needs: build-and-push
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+      - name: Configure AWS credentials via OIDC
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: arn:aws:iam::837632065693:role/GitHubActions-Deploy-Role
+          aws-region: us-east-1
+
+      - name: Deploy via SSM
+        run: |
+          CMD_ID=$(aws ssm send-command \
+            --instance-ids i-0cf8c5811cffc33fe \
+            --document-name AWS-RunShellScript \
+            --comment "Deploy ${GITHUB_SHA}" \
+            --parameters commands="sudo -u jmarcelo bash -lc 'cd /home/jmarcelo/jmarcelocarvalho && git pull && export WEB_TAG=${GITHUB_SHA} && docker compose pull && docker compose up -d && docker compose ps'" \
+            --query "Command.CommandId" --output text)
+          echo "Command ID: $CMD_ID"
+
+          echo "Waiting for command to finish..."
+          aws ssm wait command-executed \
+            --command-id "$CMD_ID" \
+            --instance-id i-0cf8c5811cffc33fe || true
+
+          echo "----- Deploy output -----"
+          aws ssm get-command-invocation \
+            --command-id "$CMD_ID" \
+            --instance-id i-0cf8c5811cffc33fe \
+            --query "StandardOutputContent" --output text
+
+          STATUS=$(aws ssm get-command-invocation \
+            --command-id "$CMD_ID" \
+            --instance-id i-0cf8c5811cffc33fe \
+            --query "Status" --output text)
+          echo "Final status: $STATUS"
+          if [ "$STATUS" != "Success" ]; then
+            echo "----- Error output -----"
+            aws ssm get-command-invocation \
+              --command-id "$CMD_ID" \
+              --instance-id i-0cf8c5811cffc33fe \
+              --query "StandardErrorContent" --output text
+            exit 1
+          fi
