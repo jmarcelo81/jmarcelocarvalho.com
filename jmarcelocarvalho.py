@@ -30,7 +30,6 @@ def save_to_db(name, email, subject, message):
 @app.route("/", methods=["GET", "POST"])
 
 def home():
-    raise Exception("Intentional break for rollback drill")
     if request.method == "POST":
         name = request.form.get("name")
         email = request.form.get("email")
