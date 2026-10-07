@@ -18,6 +18,7 @@ services:
       - web-net
 
   web:
+#    build: . Usado para testes locais
     image: ghcr.io/jmarcelo81/jmarcelocarvalho.com:${WEB_TAG:-latest}
     container_name: web-app
     restart: unless-stopped

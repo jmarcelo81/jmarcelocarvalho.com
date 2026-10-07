@@ -1,34 +1,29 @@
 FROM python:3.11-slim
 
-ENV PYTHONDONTWRITEBYTECODE=1
-ENV PYTHONUNBUFFERED=1
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1 \
+    PIP_NO_CACHE_DIR=1 \
+    FLASK_APP=jmarcelocarvalho.py
+
+# Criar user app (não usar root por segurança)
+RUN groupadd --system --gid 10001 app \
+ && useradd --system --uid 10001 --gid app --home-dir /app --shell /usr/sbin/nologin app
 
 WORKDIR /app
 
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    curl \
-    procps \
-    iproute2 \
-    net-tools \
-    iputils-ping \
-    dnsutils \
-    && rm -rf /var/lib/apt/lists/*
-
 COPY requirements.txt .
+RUN pip install --upgrade pip && pip install -r requirements.txt
 
-RUN pip install --no-cache-dir --upgrade pip && \
-    pip install --no-cache-dir -r requirements.txt
+COPY --chown=app:app . .
+RUN chmod 0755 /app/docker-entrypoint.sh
 
-COPY . .
-
-ENV FLASK_APP=jmarcelocarvalho.py
-ENV FLASK_RUN_HOST=0.0.0.0
-
+USER app
 EXPOSE 5000
 
 HEALTHCHECK --interval=30s --timeout=10s --start-period=20s --retries=3 \
-  CMD python -c "from jmarcelocarvalho import app; c=app.test_client(); r=c.get('/'); raise SystemExit(0 if r.status_code == 200 else 1)"
+  CMD python -c "import requests; r=requests.get('http://localhost:5000/'); exit(0 if r.status_code == 200 else 1)"
 
+ENTRYPOINT ["/app/docker-entrypoint.sh"]
 CMD ["gunicorn", \
      "--workers", "2", \
      "--threads", "2", \
